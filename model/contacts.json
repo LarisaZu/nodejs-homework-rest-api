@@ -12,12 +12,6 @@
     "phone": "(294) 840-6685"
   },
   {
-    "id": 3,
-    "name": "Kennedy Lane",
-    "email": "mattis.Cras@nonenimMauris.net",
-    "phone": "(542) 451-7038"
-  },
-  {
     "id": 4,
     "name": "Wylie Pope",
     "email": "est@utquamvel.net",
@@ -52,5 +46,23 @@
     "name": "Thomas Lucas",
     "email": "nec@Nulla.com",
     "phone": "(704) 398-7993"
+  },
+  {
+    "id": 11,
+    "name": "Mango",
+    "email": "mango@gmail.com",
+    "phone": "322-22-22"
+  },
+  {
+    "id": "2cc019ba-963f-4634-aa79-84668bd415af",
+    "name": "Harry Potter",
+    "email": "Donec.elementum@mail.net",
+    "phone": "(748) 206-2688"
+  },
+  {
+    "id": "d2850787-5db8-4d6c-a09d-470d20b3dc48",
+    "name": "Shrek newwww",
+    "email": "Donec.elementum@mail.net newwww",
+    "phone": "(748) 206-2688 newwww"
   }
 ]
