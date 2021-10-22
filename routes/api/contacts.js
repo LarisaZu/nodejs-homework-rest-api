@@ -7,5 +7,6 @@ router.get('/:contactId', ctrl.getContactById)
 router.post('/', ctrl.addContact)
 router.delete('/:contactId', ctrl.removeContact)
 router.put('/:contactId', ctrl.updatePutContact)
+router.patch('/:contactId', ctrl.updatePatchContact)
 
 module.exports = router

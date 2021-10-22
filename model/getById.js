@@ -1,11 +1,7 @@
-const getAll = require('./getAll')
-
-const getById = async (id) => {
+const getById = async (contacts, id) => {
   // eslint-disable-next-line no-useless-catch
   try {
-    const contacts = await getAll()
-    // console.log('contacts', typeof contacts)
-    const selectContact = contacts.find(
+    const selectContact = await contacts.find(
       contact => String(contact.id) === id,
     )
     if (!selectContact) {

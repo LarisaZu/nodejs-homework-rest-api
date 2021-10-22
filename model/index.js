@@ -1,9 +1,9 @@
 const getAll = require('./getAll')
 const getById = require('./getById')
-const updateContacts = require('./updateContacts')
+const updateContactsList = require('./updateContactsList')
 
 module.exports = {
   getAll,
   getById,
-  updateContacts,
+  updateContactsList,
 }
