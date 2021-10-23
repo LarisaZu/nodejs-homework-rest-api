@@ -1,4 +1,4 @@
-const { getAll, getById, updateContactsList } = require('../../model')
+const { getAll, getById, updateContactsList } = require('../../model/contacts')
 
 const updatePatchContact = async (req, res, next) => {
   // eslint-disable-next-line no-useless-catch

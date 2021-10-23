@@ -1,4 +1,4 @@
-const { getAll, getById } = require('../../model')
+const { getAll, getById } = require('../../model/contacts')
 
 const getContactById = async (req, res, next) => {
   // eslint-disable-next-line no-useless-catch

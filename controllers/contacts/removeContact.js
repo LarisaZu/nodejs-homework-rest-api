@@ -1,5 +1,5 @@
-const { getById } = require('../../model')
-const { getAll, updateContactsList } = require('../../model')
+const { getById } = require('../../model/contacts')
+const { getAll, updateContactsList } = require('../../model/contacts')
 
 const removeContact = async (req, res, next) => {
   // eslint-disable-next-line no-useless-catch

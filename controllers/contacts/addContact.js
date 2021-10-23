@@ -1,5 +1,5 @@
 const { v4: uuidv4 } = require('uuid')
-const { getAll, updateContactsList } = require('../../model')
+const { getAll, updateContactsList } = require('../../model/contacts')
 
 const addContact = async (req, res, next) => {
   // eslint-disable-next-line no-useless-catch
