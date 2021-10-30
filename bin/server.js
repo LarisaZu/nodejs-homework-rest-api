@@ -1,8 +1,26 @@
+const mongoose = require('mongoose')
+const colors = require('colors')
 const app = require('../app')
 require('dotenv').config()
 
-const PORT = process.env.PORT || 3000
+const { DB_HOST, PORT = 3000 } = process.env
+console.log(DB_HOST)
 
-app.listen(PORT, () => {
-  console.log(`Server running. Use our API on port: ${PORT}`)
-})
+mongoose.connect(DB_HOST, {
+  useNewUrlParser: true,
+  // useCreateIndex: true,
+  useUnifiedTopology: true
+},
+console.log('Database connection successful'.bgBlue)
+)
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server running. Use our API on port: ${PORT}`.bgRed)
+    })
+  })
+  .catch(error => {
+    console.log('error', error.message)
+    process.exit(1)
+  })
+
+// mongoose
