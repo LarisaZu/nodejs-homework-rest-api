@@ -1,16 +1,14 @@
 const { Contact } = require('../../models/contact')
+const { NotFound } = require('http-errors')
 
-const deleteById = async (req, res, next) => {
-  try {
-    const { contactId } = req.params
-    const result = await Contact.findByIdAndDelete(contactId)
-    if (!result) {
-      return res.status(404).json({ message: 'Not found' })
-    }
-    return res.status(200).json(result)
-  } catch (error) {
-    next(error)
+const deleteById = async (req, res) => {
+  const { contactId } = req.params
+  const result = await Contact.findOneAndDelete({ _id: contactId, owner: req.user._id }).populate('owner', '_id email')
+
+  if (!result) {
+    throw new NotFound()
   }
+  return res.status(200).json(result)
 }
 
 module.exports = deleteById
