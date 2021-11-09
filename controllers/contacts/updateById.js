@@ -1,16 +1,17 @@
 const { Contact } = require('../../models/contact')
+const { NotFound } = require('http-errors')
 
-const updateById = async (req, res, next) => {
-  try {
-    const { contactId } = req.params
-    const result = await Contact.findByIdAndUpdate(contactId, req.body, { new: true })
-    if (!result) {
-      return res.status(404).json({ message: 'Not found' })
-    }
-    return res.status(200).json(result)
-  } catch (error) {
-    next(error)
+const updateById = async (req, res) => {
+  const { contactId } = req.params
+  const result = await Contact.findOneAndUpdate(
+    { _id: contactId, owner: req.user._id },
+    req.body,
+    { new: true },
+  ).populate('owner', '_id email')
+  if (!result) {
+    throw new NotFound()
   }
+  return res.status(200).json(result)
 }
 
 module.exports = updateById

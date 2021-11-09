@@ -4,7 +4,6 @@ const app = require('../app')
 require('dotenv').config()
 
 const { DB_HOST, PORT = 3000 } = process.env
-console.log(DB_HOST)
 
 mongoose.connect(DB_HOST, {
   useNewUrlParser: true,
@@ -22,5 +21,3 @@ console.log('Database connection successful'.bgBlue)
     console.log('error', error.message)
     process.exit(1)
   })
-
-// mongoose

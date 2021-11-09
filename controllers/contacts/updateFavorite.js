@@ -1,21 +1,26 @@
 const { Contact } = require('../../models/contact')
+const { BadRequest, NotFound } = require('http-errors')
 
-const updateFavorite = async (req, res, next) => {
-  try {
-    const { contactId } = req.params
-    const { favorite } = req.body
+const updateFavorite = async (req, res) => {
+  const { contactId } = req.params
+  const { favorite } = req.body
 
-    if (!favorite) {
-      return res.status(400).json({ message: 'missing field favorite' })
-    }
-    const result = await Contact.findByIdAndUpdate(contactId, { favorite }, { new: true })
-    if (!result) {
-      return res.status(404).json({ message: 'Not found' })
-    }
-    return res.status(200).json(result)
-  } catch (error) {
-    next(error)
+  if (favorite === undefined) {
+    throw new BadRequest('Missing field favorite')
   }
+
+  const result = await Contact.findOneAndUpdate(
+    {
+      _id: contactId,
+      owner: req.user._id,
+    },
+    { favorite },
+    { new: true },
+  ).populate('owner', '_id email')
+  if (!result) {
+    throw new NotFound()
+  }
+  return res.status(200).json(result)
 }
 
 module.exports = updateFavorite
