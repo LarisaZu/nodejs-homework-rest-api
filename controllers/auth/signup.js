@@ -1,14 +1,26 @@
+const gravatar = require('gravatar')
+const fs = require('fs/promises')
+const path = require('path')
 const { User } = require('../../models')
 const { Conflict } = require('http-errors')
 
+const usersDir = path.join(__dirname, '../../', 'public/avatars')
+
 const signup = async (req, res) => {
-  const { email, password, subscription } = req.body
+  const { email } = req.body
+  const url = gravatar.url(email, { d: 'wavatar' }, true)
   const user = await User.findOne({ email })
 
   if (user) {
     throw new Conflict('Email in use')
   }
-  await User.create({ email, password, subscription })
+  const newUser = { ...req.body, avatarURL: url }
+  const createdUser = await User.create(newUser)
+
+  const id = createdUser._id.toString()
+  const dirPath = path.join(usersDir, id)
+  await fs.mkdir(dirPath)
+
   return res.status(201).send(
     {
       status: 'created',
@@ -16,7 +28,7 @@ const signup = async (req, res) => {
       message: 'success register',
       user: {
         email,
-        subscription,
+        subscription: createdUser.subscription,
       }
     }
   )
