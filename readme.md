@@ -37,8 +37,4 @@
 - `npm lint:fix` &mdash; та же проверка линтера, но с автоматическими
   исправлениями простых ошибок
 
-popopo id 6183ba2af8e1c4490404e392
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODNiYTJhZjhlMWM0NDkwNDA0ZTM5MiIsImlhdCI6MTYzNjAyMzI3OH0.\_77ts8tRO6P0yzhZ-1ZvUQTbtIQ1LNMGfEx_sxJ_noM
 
-"email": "qweqweqwe@mail.ru", id: 6183bd19f8e1c4490404e3a4
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxODNiZDE5ZjhlMWM0NDkwNDA0ZTNhNCIsImlhdCI6MTYzNjAyNjg4OH0.cks80W0h_JRNWvflT3wnhvZeTux6s_SRDAZ3We2SEII
